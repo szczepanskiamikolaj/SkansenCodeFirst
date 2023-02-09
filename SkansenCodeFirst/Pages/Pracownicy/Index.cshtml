@@ -1,0 +1,54 @@
+﻿@page
+@model SkansenCodeFirst.Pages.Pracownicy.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Indeks</h1>
+
+<p>
+    <a asp-page="Create">Dodaj Nowy</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Pracownik[0].Imie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pracownik[0].Nazwisko)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pracownik[0].Telefon)
+            </th>
+            <th>
+                Zdjęcie
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Pracownik) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefon)
+            </td>
+                <td>
+                    <img src="https://@(item.PortretUrl)" onerror="this.onerror=null; this.src='https://i.imgur.com/uMsvVGX.png'" style="width: 75px; height: 75px;">
+                </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PracownikId">Edytuj</a> |
+                <a asp-page="./Details" asp-route-id="@item.PracownikId">Detale</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PracownikId">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

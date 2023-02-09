@@ -1,0 +1,43 @@
+﻿@page
+@model SkansenCodeFirst.Pages.Pracownicy.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detale</h1>
+
+<div>
+    <h4>Pracownik</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pracownik.Imie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pracownik.Imie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pracownik.Nazwisko)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pracownik.Nazwisko)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pracownik.Telefon)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pracownik.Telefon)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pracownik.PortretUrl)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Pracownik.PortretUrl)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Pracownik.PracownikId">Edytuj</a> |
+    <a asp-page="./Index">Wróc do listy</a>
+</div>

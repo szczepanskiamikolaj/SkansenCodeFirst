@@ -1,0 +1,32 @@
+﻿@page
+@model SkansenCodeFirst.Model.Identity.RegisterViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+<h1>Rejestracja</h1>
+<p>Aby kontynuować proszę się zarejestrować.</p>
+<form asp-controller="AccountController" asp-action="Register" method="post">
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" asp-for="Email">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label">Hasło</label>
+        <input type="password" class="form-control" asp-for="Password">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="ConfirmPassword" class="form-label">
+            Powtórz
+            hasło
+        </label>
+        <input type="password" class="form-control" asp-
+               for="ConfirmPassword">
+        <span asp-validation-for="ConfirmPassword" class="text-
+danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Zarejestruj</button>
+</form>
+<div asp-validation-summary="All" class="text-danger"></div>

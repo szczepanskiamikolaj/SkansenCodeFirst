@@ -1,0 +1,48 @@
+﻿@page
+@model SkansenCodeFirst.Pages.Zabytki.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Indeks</h1>
+
+<p>
+    <a asp-page="Create">Dodaj Nowy</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nazwa Zabytku
+            </th>
+            <th>
+                Zdjęcie
+            </th>
+            <th>
+                Wymaga Renowacji?
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Zabytek) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZabytekNazwa)
+            </td>
+            <td>
+                    <img src="https://@(item.ObrazUrl)" onerror="this.onerror=null; this.src='https://i.imgur.com/uMsvVGX.png'" style="width: 75px; height: 75px;">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WymagaRenowacji)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ZabytekId">Edytuj</a> |
+                <a asp-page="./Details" asp-route-id="@item.ZabytekId">Detale</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ZabytekId">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,52 @@
+﻿@page
+@model SkansenCodeFirst.Pages.Inwentaryzacje.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Usuń</h1>
+
+<h3>Jesteś pewien że chcesz to usunąć?</h3>
+<div>
+    <h4>Inwentaryzacja</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inwentaryzacja.Pracownik)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inwentaryzacja.Pracownik.PracownikId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inwentaryzacja.Zabytek)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inwentaryzacja.Zabytek.ZabytekId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inwentaryzacja.DataRaportu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inwentaryzacja.DataRaportu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inwentaryzacja.Komentarz)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inwentaryzacja.Komentarz)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inwentaryzacja.WymagaRenowacji)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inwentaryzacja.WymagaRenowacji)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Inwentaryzacja.InwentaryzacjaId" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        <a asp-page="./Index">Wróc do listy</a>
+    </form>
+</div>

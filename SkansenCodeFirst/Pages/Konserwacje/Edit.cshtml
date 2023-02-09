@@ -1,0 +1,50 @@
+﻿@page
+@model SkansenCodeFirst.Pages.Konserwacje.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edytuj</h1>
+
+<h4>Konserwacja</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Konserwacja.KonserwacjaId" />
+ @*           <div class="form-group">
+                <label asp-for="Konserwacja.KonserwacjaData" class="control-label"></label>
+                <input asp-for="Konserwacja.KonserwacjaData" class="form-control" />
+                <span asp-validation-for="Konserwacja.KonserwacjaData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Konserwacja.PracownikId" class="control-label"></label>
+                <select asp-for="Konserwacja.PracownikId" class="form-control" asp-items="ViewBag.PracownikId"></select>
+                <span asp-validation-for="Konserwacja.PracownikId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Konserwacja.ZabytekId" class="control-label"></label>
+                <select asp-for="Konserwacja.ZabytekId" class="form-control" asp-items="ViewBag.ZabytekId"></select>
+                <span asp-validation-for="Konserwacja.ZabytekId" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Konserwacja.KonserwacjaKomentarz" class="control-label"></label>
+                <input asp-for="Konserwacja.KonserwacjaKomentarz" class="form-control" />
+                <span asp-validation-for="Konserwacja.KonserwacjaKomentarz" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Wróc do listy</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

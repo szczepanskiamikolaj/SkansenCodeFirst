@@ -1,0 +1,67 @@
+﻿@page
+@model SkansenCodeFirst.Pages.Sprzedaze.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Indeks</h1>
+
+<p>
+    <a asp-page="Create">Dodaj Nowy</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sprzedaz[0].Ilosc)
+            </th>
+            <th>
+                Cena
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Sprzedaz[0].DataSprzedazy)*@Data Sprzedaży
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sprzedaz[0].Produkt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sprzedaz[0].Pracownik)
+            </th>
+            <th>
+                Razem
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Sprzedaz) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ilosc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produkt.ProduktCena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataSprzedazy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produkt.ProduktName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pracownik.Nazwisko)
+            </td>
+                <td>
+                    @((@item.Produkt.ProduktCena*@item.Ilosc).ToString())
+                </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.SprzedazId">Edytuj</a> |
+                <a asp-page="./Details" asp-route-id="@item.SprzedazId">Detale</a> |
+                <a asp-page="./Delete" asp-route-id="@item.SprzedazId">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    

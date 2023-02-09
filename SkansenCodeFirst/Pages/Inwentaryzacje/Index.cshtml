@@ -1,0 +1,60 @@
+﻿@page
+@model SkansenCodeFirst.Pages.Inwentaryzacje.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Indeks</h1>
+
+<p>
+    <a asp-page="Create">Dodaj Nowy</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Inwentaryzacja[0].Pracownik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inwentaryzacja[0].Zabytek)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inwentaryzacja[0].DataRaportu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inwentaryzacja[0].Komentarz)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inwentaryzacja[0].WymagaRenowacji)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Inwentaryzacja) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pracownik.Nazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zabytek.ZabytekNazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataRaportu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Komentarz)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WymagaRenowacji)
+            </td>
+            <td>
+@*                <a asp-page="./Edit" asp-route-id="@item.InwentaryzacjaId">Edytuj</a> |
+                <a asp-page="./Details" asp-route-id="@item.InwentaryzacjaId">Detale</a> |*@
+                <a asp-page="./Delete" asp-route-id="@item.InwentaryzacjaId">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

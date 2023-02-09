@@ -1,0 +1,37 @@
+﻿@page
+@model SkansenCodeFirst.Pages.Konserwacje.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detale</h1>
+
+<div>
+    <h4>Konserwacja</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Konserwacja.KonserwacjaData)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Konserwacja.KonserwacjaData)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Konserwacja.Pracownik)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Konserwacja.Pracownik.Nazwisko)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Konserwacja.Zabytek)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Konserwacja.Zabytek.ZabytekNazwa)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Konserwacja.KonserwacjaId">Edytuj</a> |
+    <a asp-page="./Index">Wróc do listy</a>
+</div>

@@ -1,0 +1,50 @@
+﻿@page
+@model SkansenCodeFirst.Pages.Sprzedaze.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edytuj</h1>
+
+<h4>Sprzedaz</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Sprzedaz.SprzedazId" />
+            <div class="form-group">
+                <label asp-for="Sprzedaz.Ilosc" class="control-label"></label>
+                <input asp-for="Sprzedaz.Ilosc" class="form-control" />
+                <span asp-validation-for="Sprzedaz.Ilosc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Data</label>
+                <input asp-for="Sprzedaz.DataSprzedazy" class="form-control" />
+                <span asp-validation-for="Sprzedaz.DataSprzedazy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Produkt</label>
+                <select asp-for="Sprzedaz.ProduktId" class="form-control" asp-items="ViewBag.ProduktId"></select>
+                <span asp-validation-for="Sprzedaz.ProduktId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Pracownik</label>
+                <select asp-for="Sprzedaz.PracownikId" class="form-control" asp-items="ViewBag.PracownikId"></select>
+                <span asp-validation-for="Sprzedaz.PracownikId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Wróc do listy</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

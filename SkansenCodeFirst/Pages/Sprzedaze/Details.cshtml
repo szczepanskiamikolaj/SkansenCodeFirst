@@ -1,0 +1,43 @@
+﻿@page
+@model SkansenCodeFirst.Pages.Sprzedaze.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detale</h1>
+
+<div>
+    <h4>Sprzedaz</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sprzedaz.Ilosc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sprzedaz.Ilosc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sprzedaz.DataSprzedazy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sprzedaz.DataSprzedazy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sprzedaz.Produkt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sprzedaz.Produkt.ProduktName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sprzedaz.Pracownik)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sprzedaz.Pracownik.Nazwisko)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Sprzedaz.SprzedazId">Edytuj</a> |
+    <a asp-page="./Index">Wróc do listy</a>
+</div>

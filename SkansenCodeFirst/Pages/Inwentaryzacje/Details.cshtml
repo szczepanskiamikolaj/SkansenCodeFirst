@@ -1,0 +1,49 @@
+﻿@page
+@model SkansenCodeFirst.Pages.Inwentaryzacje.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detale</h1>
+
+<div>
+    <h4>Inwentaryzacja</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inwentaryzacja.Pracownik)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inwentaryzacja.Pracownik.PracownikId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inwentaryzacja.Zabytek)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inwentaryzacja.Zabytek.ZabytekId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inwentaryzacja.DataRaportu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inwentaryzacja.DataRaportu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inwentaryzacja.Komentarz)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inwentaryzacja.Komentarz)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Inwentaryzacja.WymagaRenowacji)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Inwentaryzacja.WymagaRenowacji)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Inwentaryzacja.InwentaryzacjaId">Edytuj</a> |
+    <a asp-page="./Index">Wróc do listy</a>
+</div>

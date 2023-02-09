@@ -1,0 +1,54 @@
+﻿@page
+@model SkansenCodeFirst.Pages.Konserwacje.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Indeks</h1>
+
+<p>
+    <a asp-page="Create">Dodaj Nowy</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Konserwacja[0].KonserwacjaData)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Konserwacja[0].Pracownik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Konserwacja[0].Zabytek)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Konserwacja[0].KonserwacjaKomentarz)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Konserwacja) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KonserwacjaData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pracownik.Nazwisko)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zabytek.ZabytekNazwa)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KonserwacjaKomentarz)
+                </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.KonserwacjaId">Edytuj</a> |
+                <a asp-page="./Details" asp-route-id="@item.KonserwacjaId">Detale</a> |
+                <a asp-page="./Delete" asp-route-id="@item.KonserwacjaId">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
